@@ -1,17 +1,15 @@
 package com.ebay.webcrawler.service;
 
-import com.ebay.webcrawler.CrawlService;
+import com.ebay.webcrawler.EbayCrawlService;
 import com.ebay.webcrawler.WebcrawlerApplication;
 import com.ebay.webcrawler.model.UrlTree;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.Cache;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.cache.CacheManager;
 import javax.inject.Inject;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.springframework.cache.interceptor.SimpleKey;
@@ -31,7 +29,7 @@ public class CacheCrawlerServiceTest {
     private Cache applicationCache;
 
     @Inject
-    private CrawlService crawlerService;
+    private EbayCrawlService crawlerService;
 
     @Test
     public void testCacheOnDeepCrawl() throws IOException {

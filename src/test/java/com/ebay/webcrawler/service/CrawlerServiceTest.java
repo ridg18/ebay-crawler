@@ -1,6 +1,6 @@
 package com.ebay.webcrawler.service;
 
-import com.ebay.webcrawler.CrawlService;
+import com.ebay.webcrawler.EbayCrawlService;
 import com.ebay.webcrawler.WebcrawlerApplication;
 import com.ebay.webcrawler.model.UrlTree;
 import org.junit.Test;
@@ -26,12 +26,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CrawlerServiceTest {
 
     @Inject
-    private CrawlService crawlService;
+    private EbayCrawlService ebayCrawlService;
 
 
     @Test
     public void testDeepCrawl() throws IOException {
-        final UrlTree info = crawlService.deepCrawl("http://spring.io", 3, null);
+        final UrlTree info = ebayCrawlService.deepCrawl("http://spring.io", 3, null);
         assertThat(info).isNotNull().satisfies(treeInfo -> {
             assertThat(treeInfo.getTitle()).contains("Spring");
             assertThat(treeInfo.getUrl()).contains("http://spring.io");
